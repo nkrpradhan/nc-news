@@ -4,9 +4,16 @@ import { getArticles } from "../api/services/articles";
 import Article from "./Article";
 import "../styles/Topic.css";
 
-export default function Topic({ articles }) {
+export default function Topic({ articles, loading }) {
   let { topicName } = useParams();
 
+  if (loading) {
+    return (
+      <>
+        <h2 className="loading">Loading...</h2>
+      </>
+    );
+  }
   return (
     <>
       <h1 className="topic-header">Topic- {topicName}</h1>

@@ -21,10 +21,13 @@ function App() {
     <>
       <Home />
       <Routes>
-        <Route path="/" element={<Articles articles={articles} />} />
+        <Route
+          path="/"
+          element={<Articles articles={articles} loading={loading} />}
+        />
         <Route
           path="/topics/:topicName"
-          element={<Topic articles={articles} />}
+          element={<Topic articles={articles} loading={loading} />}
         />
       </Routes>
     </>
