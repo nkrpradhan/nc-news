@@ -1,0 +1,21 @@
+.nav-bar {
+  height: 5rem;
+  background: linear-gradient(
+    90deg,
+    rgba(34, 63, 134, 1) 0%,
+    rgba(109, 134, 232, 0.9981034650188201) 32%
+  );
+  color: rgb(219, 224, 245);
+  margin-top: 2%;
+  margin-bottom: 5%;
+  box-shadow: 5px 5px 32px 5px rgba(165, 165, 165, 0.33);
+  border: 1px solid rgb(3, 43, 129);
+  display: flex;
+  gap: 20px;
+  justify-content: space-around;
+  align-items: center;
+}
+.nav-header {
+  margin-left: 1%;
+  padding: 10px;
+}
