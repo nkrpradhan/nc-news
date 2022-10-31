@@ -18,4 +18,12 @@
 .nav-header {
   margin-left: 1%;
   padding: 10px;
+  text-decoration: none;
+}
+.nav-link {
+  text-decoration: none;
+  color: antiquewhite;
+}
+.nav-topic {
+  text-transform: capitalize;
 }
