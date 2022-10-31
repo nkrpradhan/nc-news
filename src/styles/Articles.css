@@ -1,0 +1,12 @@
+ul {
+  list-style: none;
+}
+.loading {
+  text-align: center;
+}
+.articles-container {
+  gap: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
