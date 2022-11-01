@@ -8,4 +8,9 @@ const getArticles = () => {
 const getArticleByID = (id) => {
   return axios.get(`${URL}/articles/${id}`);
 };
-export { getArticles, getArticleByID };
+
+const updateVoteService = (id, noOfVotes) => {
+  return axios.patch(`${URL}/articles/${id}`, { inc_votes: noOfVotes });
+};
+
+export { getArticles, getArticleByID, updateVoteService };

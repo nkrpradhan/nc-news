@@ -1,11 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
-import { getArticles } from "../api/services/articles";
 import Article from "./Article";
 import "../styles/Topic.css";
 import { MdWorkspacesFilled } from "react-icons/md";
+import { ArticleContext } from "../context/ArticleContext";
 
-export default function Topic({ articles, loading }) {
+export default function Topic({ loading }) {
+  const { articles } = useContext(ArticleContext);
   let { topicName } = useParams();
 
   if (loading) {
