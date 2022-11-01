@@ -1,3 +1,6 @@
+.parent-article-container {
+  display: flex;
+}
 .section-container {
   font-family: Arial, Helvetica, sans-serif;
   margin: 5rem;
@@ -5,8 +8,9 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
-  max-width: 50%;
+  /* max-width: 50%; */
   line-height: 1.8;
+  flex-basis: max-content;
 }
 .section-date {
   border-left: 3px solid rgb(14, 99, 246);
