@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import Article from "./Article";
 import "../styles/Articles.css";
+import { ArticleContext } from "../context/ArticleContext";
 
-export default function Articles({ articles, loading }) {
+export default function Articles({ loading }) {
+  const { articles } = useContext(ArticleContext);
   if (loading) {
     return (
       <>

@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, createContext } from "react";
 import "../styles/Home.css";
 import { Link } from "react-router-dom";
 import { getTopics } from "../api/services/topics";
+import { ArticleContext } from "../context/ArticleContext";
 
 export default function Home() {
+  
   const [topics, setTopics] = useState([]);
   useEffect(() => {
     getTopics().then((res) => {
