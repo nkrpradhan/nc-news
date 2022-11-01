@@ -38,11 +38,12 @@ export default function ArticleDetails() {
     } else if (updateType === "decrement") {
       noOfVotes = -1;
     }
-    updateVoteService(id, noOfVotes).then((res) => {
-      console.log("vote", res);
-      setVotes(res.data.article.votes);
-      setArticleContent();
-    });
+    setVotes((prevVotes) => prevVotes + noOfVotes);
+    updateVoteService(id, noOfVotes)
+      .then((res) => {
+        setArticleContent();
+      })
+      .catch((err) => alert("Something went wrong, please try again."));
   };
 
   return (
