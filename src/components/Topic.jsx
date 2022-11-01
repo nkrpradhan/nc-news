@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { getArticles } from "../api/services/articles";
 import Article from "./Article";
 import "../styles/Topic.css";
+import { MdWorkspacesFilled } from "react-icons/md";
 
 export default function Topic({ articles, loading }) {
   let { topicName } = useParams();
@@ -16,7 +17,9 @@ export default function Topic({ articles, loading }) {
   }
   return (
     <>
-      <h1 className="topic-header">Topic- {topicName}</h1>
+      <h1 className="topic-header">
+        <MdWorkspacesFilled /> {topicName}
+      </h1>
       {articles.length > 0 && (
         <ul className="articles-container">
           {articles.map((article) => {
