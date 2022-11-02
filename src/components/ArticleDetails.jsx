@@ -4,6 +4,7 @@ import {
   getArticleByID,
   updateVoteService,
   getComments,
+  postCommentService,
 } from "../api/services/articles";
 import { BiCommentDetail } from "react-icons/bi";
 import { AiFillLike, AiFillDislike } from "react-icons/ai";
@@ -19,6 +20,8 @@ export default function ArticleDetails() {
   const [articleCreated, setArticleCreated] = useState("");
   const [votes, setVotes] = useState(0);
   const [comments, setComments] = useState([]);
+  const [postComment, setPostComment] = useState("");
+  const [userName] = useState("grumpy19");
 
   const getDate = (createdAt) => {
     const dateObj = new Date(createdAt);
@@ -62,7 +65,24 @@ export default function ArticleDetails() {
       .then((res) => {
         setArticleContent();
       })
-      .catch((err) => alert("Something went wrong, please try again."));
+      .catch((err) => {
+        setVotes((prevVotes) => prevVotes - noOfVotes);
+        alert("Something went wrong, please try again.");
+      });
+  };
+
+  const postCommentHandler = (e) => {
+    e.preventDefault();
+
+    postCommentService(id, userName, postComment)
+      .then((res) => {
+        getArticleCommentsFn();
+        getArticleByIDFn();
+        setArticleContent();
+      })
+      .catch((err) => {
+        alert(err);
+      });
   };
 
   return (
@@ -92,6 +112,20 @@ export default function ArticleDetails() {
           </span>
         </div>
         <div className="author">- {article.author}</div>
+
+        <form onSubmit={(e) => postCommentHandler(e)}>
+          <input
+            required
+            className="post-comment"
+            type="text"
+            placeholder="add comments"
+            value={postComment}
+            onChange={(e) => setPostComment(e.target.value)}
+          />
+          <button className="post-comment-btn" type="submit">
+            Post
+          </button>
+        </form>
       </div>
       <Comments comments={comments} className="test" />
     </div>

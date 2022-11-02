@@ -1,6 +1,18 @@
-.comments-container {
-  margin: 2rem;
+.comment-container {
+  margin-top: 1rem;
+  margin-right: 0.5rem;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 5px;
+}
+.post-comment {
+  width: 50rem;
+  height: 2rem;
+  outline: none;
+}
+.post-comment-btn {
+  width: 5rem;
+  height: 2rem;
+  border: 1px solid grey;
+  border-radius: 5px;
 }

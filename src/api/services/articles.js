@@ -17,4 +17,15 @@ const getComments = (id) => {
   return axios.get(`${URL}/articles/${id}/comments`);
 };
 
-export { getArticles, getArticleByID, updateVoteService, getComments };
+const postCommentService = (id, username, body) => {
+  console.log("post comment value", id, username, body);
+  return axios.post(`${URL}/articles/${id}/comments`, { username, body });
+};
+
+export {
+  getArticles,
+  getArticleByID,
+  updateVoteService,
+  getComments,
+  postCommentService,
+};
