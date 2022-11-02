@@ -3,9 +3,9 @@ import { AiFillLike } from "react-icons/ai";
 
 export default function Comments({ comments }) {
   return (
-    <section>
+    <section className="section-comment-container">
       <h3>Comments</h3>
-      <ul >
+      <ul>
         {comments.map((comment) => {
           return (
             <li className="comment-container" key={comment.comment_id}>
