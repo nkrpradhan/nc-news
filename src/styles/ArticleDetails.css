@@ -21,3 +21,6 @@
   border: none;
   cursor: pointer;
 }
+fieldset {
+  border: none;
+}

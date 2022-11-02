@@ -11,6 +11,7 @@ import { AiFillLike, AiFillDislike } from "react-icons/ai";
 import "../styles/ArticleDetails.css";
 import { ArticleContext } from "../context/ArticleContext";
 import Comments from "./Comments";
+import Toastmsg from "./Toastmsg";
 
 export default function ArticleDetails() {
   const { setArticleContent } = useContext(ArticleContext);
@@ -22,6 +23,9 @@ export default function ArticleDetails() {
   const [comments, setComments] = useState([]);
   const [postComment, setPostComment] = useState("");
   const [userName] = useState("grumpy19");
+  const [toast, setToast] = useState(false);
+  const [toastID, setToastID] = useState();
+  const [formReadOnly, setFormReadOnly] = useState(false);
 
   const getDate = (createdAt) => {
     const dateObj = new Date(createdAt);
@@ -72,15 +76,21 @@ export default function ArticleDetails() {
   };
 
   const postCommentHandler = (e) => {
+    setFormReadOnly(true);
     e.preventDefault();
 
     postCommentService(id, userName, postComment)
       .then((res) => {
+        console.log(res.data);
+        setToastID(res.data.comment.comment_id);
         getArticleCommentsFn();
         getArticleByIDFn();
         setArticleContent();
+        setToast(true);
+        setFormReadOnly(false);
       })
       .catch((err) => {
+        setFormReadOnly(false);
         alert(err);
       });
   };
@@ -114,18 +124,26 @@ export default function ArticleDetails() {
         <div className="author">- {article.author}</div>
 
         <form onSubmit={(e) => postCommentHandler(e)}>
-          <input
-            required
-            className="post-comment-field"
-            type="text"
-            placeholder="add comments"
-            value={postComment}
-            onChange={(e) => setPostComment(e.target.value)}
-          />
-          <button className="post-comment-btn" type="submit">
-            Post
-          </button>
+          <fieldset disabled={formReadOnly}>
+            <input
+              required
+              className="post-comment-field"
+              type="text"
+              placeholder="add comments"
+              value={postComment}
+              onChange={(e) => setPostComment(e.target.value)}
+            />
+            <button className="post-comment-btn" type="submit">
+              Post
+            </button>
+          </fieldset>
         </form>
+        {toast && (
+          <Toastmsg
+            toastMessage="Comments posted successfully."
+            toastID={toastID}
+          />
+        )}
       </div>
       <Comments comments={comments} className="test" />
     </div>
