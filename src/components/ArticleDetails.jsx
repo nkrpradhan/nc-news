@@ -116,7 +116,7 @@ export default function ArticleDetails() {
         <form onSubmit={(e) => postCommentHandler(e)}>
           <input
             required
-            className="post-comment"
+            className="post-comment-field"
             type="text"
             placeholder="add comments"
             value={postComment}

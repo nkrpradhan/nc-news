@@ -5,14 +5,17 @@
   flex-direction: column;
   gap: 5px;
 }
-.post-comment {
+.post-comment-field {
   width: 50rem;
   height: 2rem;
   outline: none;
+  border-radius: 5px;
+  border: 1px solid grey;
 }
 .post-comment-btn {
-  width: 5rem;
+  width: 5.5rem;
   height: 2rem;
   border: 1px solid grey;
   border-radius: 5px;
+  cursor: pointer;
 }
