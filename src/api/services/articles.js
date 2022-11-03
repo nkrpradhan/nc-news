@@ -1,8 +1,17 @@
 import axios from "axios";
 const URL = `https://heroku-be-nc-news.herokuapp.com/api`;
 
-const getArticles = () => {
-  return axios.get(`${URL}/articles`);
+const getArticles = (sortBy, sortOrderDesc) => {
+  let getArticleUrl = `${URL}/articles`;
+  if (sortBy !== undefined && sortBy !== "") {
+    getArticleUrl += `?sort_by=${sortBy}`;
+    if (sortOrderDesc !== undefined && sortOrderDesc !== "") {
+      getArticleUrl += `&order=${sortOrderDesc}`;
+    }
+  } else if (sortOrderDesc !== undefined && sortOrderDesc !== "") {
+    getArticleUrl += `?order=${sortOrderDesc}`;
+  }
+  return axios.get(getArticleUrl);
 };
 
 const getArticleByID = (id) => {

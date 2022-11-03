@@ -11,8 +11,9 @@ function App() {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const setArticleContent = () => {
-    getArticles().then((res) => {
+  const setArticleContent = (sortBy, sortOrderDesc) => {
+    console.log(sortBy, sortOrderDesc);
+    getArticles(sortBy, sortOrderDesc).then((res) => {
       console.log("app", res);
       if (res.status === 200) {
         setArticles(res.data.articles);
