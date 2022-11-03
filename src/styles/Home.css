@@ -50,3 +50,8 @@
   background: rgb(222, 210, 210);
   color: rgb(66, 66, 223);
 }
+.user-btn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}

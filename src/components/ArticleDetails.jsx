@@ -12,6 +12,7 @@ import "../styles/ArticleDetails.css";
 import { ArticleContext } from "../context/ArticleContext";
 import Comments from "./Comments";
 import Toastmsg from "./Toastmsg";
+import { UserContext } from "../context/UserContext";
 
 export default function ArticleDetails() {
   const { setArticleContent } = useContext(ArticleContext);
@@ -22,10 +23,11 @@ export default function ArticleDetails() {
   const [votes, setVotes] = useState(0);
   const [comments, setComments] = useState([]);
   const [postComment, setPostComment] = useState("");
-  const [userName] = useState("grumpy19");
   const [toast, setToast] = useState(false);
   const [toastID, setToastID] = useState();
   const [formReadOnly, setFormReadOnly] = useState(false);
+  const { signedUser } = useContext(UserContext);
+  const [userName] = useState(signedUser.username);
 
   const getDate = (createdAt) => {
     const dateObj = new Date(createdAt);
@@ -145,7 +147,7 @@ export default function ArticleDetails() {
           />
         )}
       </div>
-      <Comments comments={comments} className="test" />
+      {comments.length > 0 && <Comments comments={comments} className="test" />}
     </div>
   );
 }
