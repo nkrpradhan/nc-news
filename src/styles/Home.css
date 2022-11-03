@@ -28,20 +28,28 @@
   text-transform: capitalize;
 }
 .sort-container {
-  border-top: 1px solid rgb(15, 88, 244);
-  border-bottom: 1px solid rgb(15, 88, 244);
   padding: 10px;
   margin-bottom: 1rem;
+  border-radius: 20px;
 }
 .sort-select {
-  border-radius: 20px;
   height: 2rem;
-  color: blue;
+  background: linear-gradient(
+    90deg,
+    rgb(142, 172, 243) 0%,
+    rgba(181, 194, 247, 0.998) 32%
+  );
+  color: rgb(1, 1, 17);
 }
 .sort-btn {
   padding: 5px;
   cursor: pointer;
   border: none;
-  background-color: white;
   height: 2rem;
+  background: linear-gradient(
+    90deg,
+    rgb(54, 56, 60) 0%,
+    rgba(97, 104, 133, 0.998) 32%
+  );
+  color: rgb(219, 224, 245);
 }

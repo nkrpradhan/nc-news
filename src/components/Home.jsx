@@ -50,25 +50,25 @@ export default function Home() {
               </li>
             );
           })}
+
+        <li className="sort-container">
+          <select
+            className="sort-select"
+            value={sortBy}
+            onChange={(e) => {
+              filterArticles(e);
+            }}
+          >
+            <option value="created_at">Date</option>
+            <option value="votes">Votes</option>
+            <option value="comment_count">Comment</option>
+          </select>
+
+          <button className="sort-btn" onClick={() => sortArticles()}>
+            {sortOrderDesc ? <FaArrowDown /> : <FaArrowUp />}
+          </button>
+        </li>
       </ul>
-
-      <div className="sort-container">
-        <select
-          className="sort-select"
-          value={sortBy}
-          onChange={(e) => {
-            filterArticles(e);
-          }}
-        >
-          <option value="created_at">Date</option>
-          <option value="votes">Votes</option>
-          <option value="comment_count">Comment</option>
-        </select>
-
-        <button className="sort-btn" onClick={() => sortArticles()}>
-          {sortOrderDesc ? <FaArrowDown /> : <FaArrowUp />}
-        </button>
-      </div>
     </>
   );
 }
