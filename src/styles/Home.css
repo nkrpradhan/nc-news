@@ -27,3 +27,6 @@
 .nav-topic {
   text-transform: capitalize;
 }
+.filter-sort {
+  margin: 1rem;
+}
