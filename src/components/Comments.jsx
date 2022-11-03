@@ -1,7 +1,7 @@
 import "../styles/Comments.css";
 import { AiFillLike } from "react-icons/ai";
 import { deleteCommentService } from "../api/services/comments";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { ArticleContext } from "../context/ArticleContext";
 import { UserContext } from "../context/UserContext";
 
@@ -30,7 +30,9 @@ export default function Comments(props) {
         alert(err);
       });
   };
-
+  useEffect(() => {
+    setComments(props.comments);
+  }, [props.comments]);
   return (
     <section className="section-comment-container">
       <h3>Comments</h3>

@@ -50,6 +50,7 @@ export default function ArticleDetails() {
   const getArticleCommentsFn = () => {
     getComments(id).then((res) => {
       console.log("comments", res.data);
+      setPostComment("");
       setComments(res.data.comments);
     });
   };
