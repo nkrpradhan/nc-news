@@ -2,10 +2,13 @@ import { useEffect, useState, useContext } from "react";
 import { getUsers } from "../api/services/user";
 import "../styles/User.css";
 import { UserContext } from "../context/UserContext";
+import { useNavigate } from "react-router-dom";
 
 export default function User() {
   const [users, setUsers] = useState([]);
   const { setSignedUser } = useContext(UserContext);
+  const navigate = useNavigate();
+
   useEffect(() => {
     getUsers().then((res) => {
       console.log(res);
@@ -16,6 +19,7 @@ export default function User() {
   const selectUser = (username, user) => {
     console.log("select user", username, user);
     setSignedUser({ username, user });
+    navigate("/");
   };
   return (
     <div>

@@ -55,3 +55,7 @@
   background-color: transparent;
   cursor: pointer;
 }
+a {
+  text-decoration: none;
+  color: rgb(251, 250, 250);
+}
