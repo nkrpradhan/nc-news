@@ -29,6 +29,7 @@ export default function Home() {
     setArticleContent(sortBy, !sortOrderDesc ? "asc" : "desc");
     setSortOrderDesc(!sortOrderDesc);
   };
+
   return (
     <>
       <ul className="nav-bar">
@@ -51,21 +52,20 @@ export default function Home() {
           })}
       </ul>
 
-      <div className="filter-sort">
+      <div className="sort-container">
         <select
+          className="sort-select"
           value={sortBy}
           onChange={(e) => {
             filterArticles(e);
           }}
         >
-          <option value="created_at" selected>
-            Date
-          </option>
+          <option value="created_at">Date</option>
           <option value="votes">Votes</option>
           <option value="comment_count">Comment</option>
         </select>
 
-        <button onClick={() => sortArticles()}>
+        <button className="sort-btn" onClick={() => sortArticles()}>
           {sortOrderDesc ? <FaArrowDown /> : <FaArrowUp />}
         </button>
       </div>

@@ -27,6 +27,21 @@
 .nav-topic {
   text-transform: capitalize;
 }
-.filter-sort {
-  margin: 1rem;
+.sort-container {
+  border-top: 1px solid rgb(15, 88, 244);
+  border-bottom: 1px solid rgb(15, 88, 244);
+  padding: 10px;
+  margin-bottom: 1rem;
+}
+.sort-select {
+  border-radius: 20px;
+  height: 2rem;
+  color: blue;
+}
+.sort-btn {
+  padding: 5px;
+  cursor: pointer;
+  border: none;
+  background-color: white;
+  height: 2rem;
 }
