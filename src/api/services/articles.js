@@ -13,4 +13,19 @@ const updateVoteService = (id, noOfVotes) => {
   return axios.patch(`${URL}/articles/${id}`, { inc_votes: noOfVotes });
 };
 
-export { getArticles, getArticleByID, updateVoteService };
+const getComments = (id) => {
+  return axios.get(`${URL}/articles/${id}/comments`);
+};
+
+const postCommentService = (id, username, body) => {
+  console.log("post comment value", id, username, body);
+  return axios.post(`${URL}/articles/${id}/comments`, { username, body });
+};
+
+export {
+  getArticles,
+  getArticleByID,
+  updateVoteService,
+  getComments,
+  postCommentService,
+};

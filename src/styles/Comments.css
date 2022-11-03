@@ -1,0 +1,10 @@
+.section-comment-container {
+  flex-basis: 300px;
+}
+.comment-container {
+  margin-top: 1rem;
+  margin-right: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}

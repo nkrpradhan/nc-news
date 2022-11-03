@@ -1,3 +1,10 @@
+.parent-article-container {
+  margin: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
 .section-container {
   font-family: Arial, Helvetica, sans-serif;
   margin: 5rem;
@@ -5,8 +12,9 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
-  max-width: 50%;
+  /* max-width: 50%; */
   line-height: 1.8;
+  flex-basis: 900px;
 }
 .section-date {
   border-left: 3px solid rgb(14, 99, 246);
@@ -15,5 +23,23 @@
 .vote-btn {
   margin: 0.25rem;
   border: none;
+  cursor: pointer;
+}
+fieldset {
+  border: none;
+}
+.post-comment-field {
+  width: 35rem;
+  height: 2rem;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid grey;
+}
+.post-comment-btn {
+  width: 5rem;
+  width: 5.5rem;
+  height: 2rem;
+  border: 1px solid grey;
+  border-radius: 5px;
   cursor: pointer;
 }
