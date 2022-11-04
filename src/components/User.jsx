@@ -4,15 +4,20 @@ import "../styles/User.css";
 import { UserContext } from "../context/UserContext";
 import { useNavigate } from "react-router-dom";
 
+import BeatLoader from "react-spinners/BeatLoader";
+
 export default function User() {
   const [users, setUsers] = useState([]);
   const { setSignedUser } = useContext(UserContext);
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     getUsers().then((res) => {
       console.log(res);
       setUsers(res.data.users);
+      setLoading(false);
     });
   }, []);
 
@@ -44,6 +49,7 @@ export default function User() {
           })}
         </ul>
       )}
+      {loading && <BeatLoader color="#0000FF" margin={240} size={30} />}
     </div>
   );
 }
