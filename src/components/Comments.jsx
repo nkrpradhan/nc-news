@@ -4,11 +4,15 @@ import { deleteCommentService } from "../api/services/comments";
 import { useState, useContext, useEffect } from "react";
 import { ArticleContext } from "../context/ArticleContext";
 import { UserContext } from "../context/UserContext";
+import Toastmsg from "./Toastmsg";
 
 export default function Comments(props) {
   const [comments, setComments] = useState(props.comments);
   const { setArticleContent } = useContext(ArticleContext);
   const { signedUser } = useContext(UserContext);
+  const [toast, setToast] = useState(false);
+  const [toastID, setToastID] = useState();
+
   const deleteComment = (commentId) => {
     if (signedUser.user === "") {
       alert("Please sign in to delete a comment");
@@ -22,7 +26,8 @@ export default function Comments(props) {
     });
     deleteCommentService(commentId)
       .then((res) => {
-        alert("Comment has been deleted");
+        setToastID(commentId);
+        setToast(true);
         setArticleContent();
       })
       .catch((err) => {
@@ -47,18 +52,25 @@ export default function Comments(props) {
                   <span>
                     <AiFillLike /> {comment.votes}
                   </span>
-                  <button
-                    disabled={comment.author === signedUser.user ? false : true}
-                    className="delete-comment-btn"
-                    onClick={() => deleteComment(comment.comment_id)}
-                  >
-                    Delete
-                  </button>
+                  {comment.author === signedUser.user && (
+                    <button
+                      className="delete-comment-btn"
+                      onClick={() => deleteComment(comment.comment_id)}
+                    >
+                      Delete
+                    </button>
+                  )}
                 </div>
               </li>
             );
           })}
       </ul>
+      {toast && (
+        <Toastmsg
+          toastMessage="Your comment has been deleted."
+          toastID={toastID}
+        />
+      )}
     </section>
   );
 }
