@@ -5,6 +5,7 @@ import Topic from "./components/Topic";
 import User from "./components/User";
 import ArticleDetails from "./components/ArticleDetails";
 import PageNotFound from "./components/PageNotFound";
+import Error from "./components/Error";
 import { useState, useEffect } from "react";
 import { getArticles } from "./api/services/articles";
 import { ArticleProvider } from "./context/ArticleContext";
@@ -14,22 +15,34 @@ function App() {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
   const [signedUser, setSignedUser] = useState({});
+  const [error, setError] = useState();
+
   const setArticleContent = (sortBy, sortOrderDesc) => {
     console.log(sortBy, sortOrderDesc);
-    getArticles(sortBy, sortOrderDesc).then((res) => {
-      console.log("app", res);
-      if (res.status === 200) {
-        setArticles(res.data.articles);
-        setLoading(false);
-      }
-    });
+    getArticles(sortBy, sortOrderDesc)
+      .then((res) => {
+        console.log(res);
+        if (res.status === 200) {
+          setArticles(res.data.articles);
+          setLoading(false);
+          setError("");
+        } else {
+          setLoading(false);
+          setError(res.data.msg);
+        }
+      })
+      .catch((err) => {
+        setError(err.message);
+      });
   };
 
   useEffect(() => {
     setLoading(true);
     setArticleContent();
   }, []);
-
+  if (error !== "") {
+    return <Error error={error} />;
+  }
   return (
     <UserProvider value={{ signedUser, setSignedUser }}>
       <ArticleProvider value={{ articles, setArticleContent }}>
