@@ -83,8 +83,13 @@ export default function ArticleDetails() {
   };
 
   const postCommentHandler = (e) => {
-    setFormReadOnly(true);
     e.preventDefault();
+
+    if (userName === undefined || userName === "") {
+      alert("Please sign in to post a comment");
+      return;
+    }
+    setFormReadOnly(true);
 
     postCommentService(id, userName, postComment)
       .then((res) => {
