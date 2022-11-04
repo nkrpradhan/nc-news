@@ -4,6 +4,7 @@ import Articles from "./components/Articles";
 import Topic from "./components/Topic";
 import User from "./components/User";
 import ArticleDetails from "./components/ArticleDetails";
+import PageNotFound from "./components/PageNotFound";
 import { useState, useEffect } from "react";
 import { getArticles } from "./api/services/articles";
 import { ArticleProvider } from "./context/ArticleContext";
@@ -41,6 +42,7 @@ function App() {
             element={<Topic loading={loading} />}
           />
           <Route path="/article/:id" element={<ArticleDetails />} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </ArticleProvider>
     </UserProvider>

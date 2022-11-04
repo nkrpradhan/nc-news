@@ -103,7 +103,7 @@ export default function ArticleDetails() {
   };
 
   if (loading) {
-    return <BeatLoader color="#0000FF" margin={240} size={30} />;
+    return <BeatLoader color="#0000FF" margin={200} size={30} />;
   }
 
   return (
