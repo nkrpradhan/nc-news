@@ -2,10 +2,10 @@
   height: 5rem;
   background: linear-gradient(
     90deg,
-    rgba(34, 63, 134, 1) 0%,
-    rgba(109, 134, 232, 0.9981034650188201) 32%
+    rgb(21, 21, 79) 0%,
+    rgba(14, 38, 135, 0.998) 32%
   );
-  color: rgb(219, 224, 245);
+
   margin-top: 2%;
   margin-bottom: 5%;
   box-shadow: 5px 5px 32px 5px rgba(165, 165, 165, 0.33);
@@ -22,22 +22,21 @@
 }
 .nav-link {
   text-decoration: none;
-  color: antiquewhite;
+  color: white;
 }
 .nav-topic {
   text-transform: capitalize;
 }
 .sort-container {
-  padding: 10px;
-  margin-bottom: 1rem;
 }
 .sort-select {
   padding: 5px;
   border: none;
   border-radius: 20px;
   height: 2rem;
-  background: rgb(222, 210, 210);
-  color: rgb(1, 1, 17);
+  background: white;
+  color: rgb(10, 10, 104);
+  font-weight: 600;
   outline: none;
 }
 .sort-btn {
@@ -47,8 +46,8 @@
   border: none;
   border-radius: 20px;
   height: 2rem;
-  background: rgb(222, 210, 210);
-  color: rgb(66, 66, 223);
+  background: white;
+  color: rgb(10, 10, 104);
 }
 .user-btn {
   border: none;
@@ -57,5 +56,8 @@
 }
 a {
   text-decoration: none;
-  color: rgb(251, 250, 250);
+  color: rgb(149, 247, 234);
+}
+.user-icon {
+  text-align: center;
 }

@@ -13,6 +13,7 @@ import { ArticleContext } from "../context/ArticleContext";
 import Comments from "./Comments";
 import Toastmsg from "./Toastmsg";
 import { UserContext } from "../context/UserContext";
+import BeatLoader from "react-spinners/BeatLoader";
 
 export default function ArticleDetails() {
   const { setArticleContent } = useContext(ArticleContext);
@@ -28,6 +29,7 @@ export default function ArticleDetails() {
   const [formReadOnly, setFormReadOnly] = useState(false);
   const { signedUser } = useContext(UserContext);
   const [userName] = useState(signedUser.username);
+  const [loading, setLoading] = useState(true);
 
   const getDate = (createdAt) => {
     const dateObj = new Date(createdAt);
@@ -43,6 +45,7 @@ export default function ArticleDetails() {
         setArticle(res.data.article);
         setVotes(res.data.article.votes);
         getDate(res.data.article.created_at);
+        setLoading(false);
       }
     });
   };
@@ -56,6 +59,7 @@ export default function ArticleDetails() {
   };
 
   useEffect(() => {
+    setLoading(true);
     getArticleByIDFn();
     getArticleCommentsFn();
   }, []);
@@ -79,8 +83,13 @@ export default function ArticleDetails() {
   };
 
   const postCommentHandler = (e) => {
-    setFormReadOnly(true);
     e.preventDefault();
+
+    if (userName === undefined || userName === "") {
+      alert("Please sign in to post a comment");
+      return;
+    }
+    setFormReadOnly(true);
 
     postCommentService(id, userName, postComment)
       .then((res) => {
@@ -97,6 +106,10 @@ export default function ArticleDetails() {
         alert(err);
       });
   };
+
+  if (loading) {
+    return <BeatLoader color="#0000FF" margin={200} size={30} />;
+  }
 
   return (
     <div className="parent-article-container">

@@ -72,7 +72,9 @@ export default function Home() {
         <li>
           <Link to="/user" className="user-btn">
             <div>{signedUser.user}</div>
-            <BiUserCircle color="blue" size="40px" />
+            <div className="user-icon">
+              <BiUserCircle color="white" size="40px" />
+            </div>
           </Link>
         </li>
       </ul>

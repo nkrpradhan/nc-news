@@ -48,6 +48,7 @@ export default function Comments(props) {
               <li className="comment-container" key={comment.comment_id}>
                 <h4>{comment.author}</h4>
                 <div>{comment.body}</div>
+                <h4>{comment.created_at}</h4>
                 <div className="comment-btn-container">
                   <span>
                     <AiFillLike /> {comment.votes}
