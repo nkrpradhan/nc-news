@@ -10,6 +10,7 @@ import { useState, useEffect } from "react";
 import { getArticles } from "./api/services/articles";
 import { ArticleProvider } from "./context/ArticleContext";
 import { UserProvider } from "./context/UserContext";
+import BeatLoader from "react-spinners/BeatLoader";
 
 function App() {
   const [articles, setArticles] = useState([]);
@@ -40,6 +41,11 @@ function App() {
     setLoading(true);
     setArticleContent();
   }, []);
+
+  if (loading) {
+    return <BeatLoader color="#0000FF" margin={200} size={30} />;
+  }
+
   if (error !== "") {
     return <Error error={error} />;
   }
