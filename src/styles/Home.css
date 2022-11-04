@@ -30,26 +30,32 @@
 .sort-container {
   padding: 10px;
   margin-bottom: 1rem;
-  border-radius: 20px;
 }
 .sort-select {
+  padding: 5px;
+  border: none;
+  border-radius: 20px;
   height: 2rem;
-  background: linear-gradient(
-    90deg,
-    rgb(142, 172, 243) 0%,
-    rgba(181, 194, 247, 0.998) 32%
-  );
+  background: rgb(222, 210, 210);
   color: rgb(1, 1, 17);
+  outline: none;
 }
 .sort-btn {
+  margin-left: 2px;
   padding: 5px;
   cursor: pointer;
   border: none;
+  border-radius: 20px;
   height: 2rem;
-  background: linear-gradient(
-    90deg,
-    rgb(54, 56, 60) 0%,
-    rgba(97, 104, 133, 0.998) 32%
-  );
-  color: rgb(219, 224, 245);
+  background: rgb(222, 210, 210);
+  color: rgb(66, 66, 223);
+}
+.user-btn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+a {
+  text-decoration: none;
+  color: rgb(251, 250, 250);
 }

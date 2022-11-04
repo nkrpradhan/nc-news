@@ -3,14 +3,15 @@ import "../styles/Home.css";
 import { Link } from "react-router-dom";
 import { getTopics } from "../api/services/topics";
 import { ArticleContext } from "../context/ArticleContext";
+import { UserContext } from "../context/UserContext";
 import { FaArrowUp, FaArrowDown } from "react-icons/fa";
-
+import { BiUserCircle } from "react-icons/bi";
 export default function Home() {
   const [topics, setTopics] = useState([]);
   const [sortBy, setSortBy] = useState("created_at");
   const [sortOrderDesc, setSortOrderDesc] = useState(true);
   const { setArticleContent } = useContext(ArticleContext);
-
+  const { signedUser } = useContext(UserContext);
   useEffect(() => {
     getTopics().then((res) => {
       console.log("topics", res);
@@ -67,6 +68,12 @@ export default function Home() {
           <button className="sort-btn" onClick={() => sortArticles()}>
             {sortOrderDesc ? <FaArrowDown /> : <FaArrowUp />}
           </button>
+        </li>
+        <li>
+          <Link to="/user" className="user-btn">
+            <div>{signedUser.user}</div>
+            <BiUserCircle color="blue" size="40px" />
+          </Link>
         </li>
       </ul>
     </>

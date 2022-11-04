@@ -1,0 +1,21 @@
+.user-header {
+  text-align: center;
+  margin: 1rem;
+}
+.user-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.user-img {
+  width: 15rem;
+  height: 15rem;
+}
+.user-container > li > div {
+  text-align: center;
+  margin: 0.5rem;
+}
+.user-container > li {
+  cursor: pointer;
+}
