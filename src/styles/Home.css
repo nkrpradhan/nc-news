@@ -28,6 +28,10 @@
     transform: translateX(100%);
   }
 }
+.target:hover {
+  animation-play-state: paused;
+}
+
 .nav-bar {
   min-height: 5rem;
   background: linear-gradient(
