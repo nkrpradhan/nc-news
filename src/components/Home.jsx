@@ -12,6 +12,7 @@ export default function Home() {
   const [sortOrderDesc, setSortOrderDesc] = useState(true);
   const { setArticleContent } = useContext(ArticleContext);
   const { signedUser } = useContext(UserContext);
+  const { articles } = useContext(ArticleContext);
   useEffect(() => {
     getTopics().then((res) => {
       console.log("topics", res);
@@ -33,10 +34,23 @@ export default function Home() {
 
   return (
     <>
+      <div className="breaking-news-container">
+        <h3>Breaking News</h3>
+        <div className="wrapper">
+          {articles.length > 0 && (
+            <ul className="target">
+              {articles.map((article) => {
+                return <li key={article.article_id}>{article.title}</li>;
+              })}
+            </ul>
+          )}
+        </div>
+      </div>
+
       <div className="nav-bar">
         <h1 className="nav-header">
           <Link to="/" className="nav-link">
-            NC News
+            Mirror News
           </Link>
         </h1>
         <ul className="nav-links">

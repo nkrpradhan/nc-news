@@ -1,3 +1,32 @@
+.breaking-news-container {
+  display: flex;
+}
+.breaking-news-container > h3 {
+  padding-right: 1rem;
+  background-color: rgb(27, 52, 92);
+  color: white;
+  clip-path: polygon(0% 0%, 100% 0%, 90% 100%, 0% 100%);
+}
+.wrapper {
+  overflow-x: hidden;
+}
+.target {
+  display: flex;
+  animation: leftToRight 30s linear infinite;
+}
+.target > li {
+  white-space: nowrap;
+  padding: 8px;
+  height: 10px;
+}
+@keyframes leftToRight {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
 .nav-bar {
   min-height: 5rem;
   background: linear-gradient(
@@ -6,8 +35,7 @@
     rgba(14, 38, 135, 0.998) 32%
   );
 
-  margin-top: 2%;
-  margin-bottom: 5%;
+  margin-bottom: 1%;
   box-shadow: 5px 5px 32px 5px rgba(165, 165, 165, 0.33);
   border: 1px solid rgb(3, 43, 129);
   display: flex;
