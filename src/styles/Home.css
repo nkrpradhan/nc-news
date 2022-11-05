@@ -65,6 +65,9 @@
 .nav-topic {
   text-transform: capitalize;
 }
+.nav-topic:hover {
+  color: rgb(233, 137, 238);
+}
 .sort-container {
   display: flex;
 }
