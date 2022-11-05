@@ -12,7 +12,6 @@
   flex-direction: column;
   line-height: 1.8;
   max-width: 50%;
-  flex-shrink: 3;
   gap: 5px;
 }
 .section-date {
@@ -41,4 +40,13 @@ fieldset {
   border: 1px solid grey;
   border-radius: 5px;
   cursor: pointer;
+}
+
+@media (max-width: 800px) {
+  .parent-article-container {
+    flex-direction: column;
+  }
+  .section-container {
+    max-width: 90%;
+  }
 }
