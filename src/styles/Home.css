@@ -13,6 +13,7 @@
 .target {
   display: flex;
   animation: leftToRight 30s linear infinite;
+  font-family: sans-serif;
 }
 .target > li {
   white-space: nowrap;
