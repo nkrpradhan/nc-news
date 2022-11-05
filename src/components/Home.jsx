@@ -33,51 +33,51 @@ export default function Home() {
 
   return (
     <>
-      <ul className="nav-bar">
-        <li>
-          <h1 className="nav-header">
-            <Link to="/" className="nav-link">
-              NC News
-            </Link>
-          </h1>
-        </li>
-        {topics.length > 0 &&
-          topics.map((topic) => {
-            return (
-              <li key={topic.slug}>
-                <Link to={`/topics/${topic.slug}`} className="nav-link">
-                  <h3 className="nav-topic">{topic.slug}</h3>
-                </Link>
-              </li>
-            );
-          })}
-
-        <li className="sort-container">
-          <select
-            className="sort-select"
-            value={sortBy}
-            onChange={(e) => {
-              filterArticles(e);
-            }}
-          >
-            <option value="created_at">Date</option>
-            <option value="votes">Votes</option>
-            <option value="comment_count">Comment</option>
-          </select>
-
-          <button className="sort-btn" onClick={() => sortArticles()}>
-            {sortOrderDesc ? <FaArrowDown /> : <FaArrowUp />}
-          </button>
-        </li>
-        <li>
-          <Link to="/user" className="user-btn">
-            <div>{signedUser.user}</div>
-            <div className="user-icon">
-              <BiUserCircle color="white" size="40px" />
-            </div>
+      <div className="nav-bar">
+        <h1 className="nav-header">
+          <Link to="/" className="nav-link">
+            NC News
           </Link>
-        </li>
-      </ul>
+        </h1>
+        <ul className="nav-links">
+          {topics.length > 0 &&
+            topics.map((topic) => {
+              return (
+                <li key={topic.slug}>
+                  <Link to={`/topics/${topic.slug}`} className="nav-link">
+                    <h3 className="nav-topic">{topic.slug}</h3>
+                  </Link>
+                </li>
+              );
+            })}
+
+          <li className="sort-container">
+            <select
+              className="sort-select"
+              value={sortBy}
+              onChange={(e) => {
+                filterArticles(e);
+              }}
+            >
+              <option value="created_at">Date</option>
+              <option value="votes">Votes</option>
+              <option value="comment_count">Comment</option>
+            </select>
+
+            <button className="sort-btn" onClick={() => sortArticles()}>
+              {sortOrderDesc ? <FaArrowDown /> : <FaArrowUp />}
+            </button>
+          </li>
+          <li>
+            <div className="signed-user">{signedUser.user}</div>
+            <Link to="/user" className="user-btn">
+              <div className="user-icon">
+                <BiUserCircle color="white" size="40px" />
+              </div>
+            </Link>
+          </li>
+        </ul>
+      </div>
     </>
   );
 }

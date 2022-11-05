@@ -1,5 +1,5 @@
 .nav-bar {
-  height: 5rem;
+  min-height: 5rem;
   background: linear-gradient(
     90deg,
     rgb(21, 21, 79) 0%,
@@ -12,13 +12,19 @@
   border: 1px solid rgb(3, 43, 129);
   display: flex;
   gap: 20px;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 .nav-header {
   margin-left: 1%;
   padding: 10px;
   text-decoration: none;
+}
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  align-items: center;
 }
 .nav-link {
   text-decoration: none;
@@ -28,6 +34,7 @@
   text-transform: capitalize;
 }
 .sort-container {
+  display: flex;
 }
 .sort-select {
   padding: 5px;
@@ -53,11 +60,24 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
-}
-a {
   text-decoration: none;
-  color: rgb(149, 247, 234);
 }
+
 .user-icon {
   text-align: center;
+}
+.signed-user {
+  padding-right: 5px;
+  color: rgb(149, 247, 234);
+}
+
+@media (max-width: 700px) {
+  .nav-bar {
+    flex-direction: column;
+  }
+  .nav-links {
+    gap: 8px;
+    flex-direction: column;
+    align-items: center;
+  }
 }
