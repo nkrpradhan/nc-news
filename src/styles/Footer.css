@@ -1,0 +1,44 @@
+footer {
+  margin-top: 2rem;
+  box-shadow: 0 0 20px #b1acfc;
+  background-color: rgb(110, 111, 112);
+  color: rgb(233, 233, 237);
+}
+
+.footer-container {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.footer-row {
+  display: flex;
+  justify-content: space-around;
+}
+.footer-col > h4 {
+  margin-bottom: 1rem;
+  text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid;
+}
+.footer-col ul li {
+  margin: 0.5rem;
+  text-align: center;
+}
+.social-links {
+}
+.social-links ul {
+  display: flex;
+  gap: 30px;
+}
+.social-links ul li a {
+  padding: 8px;
+  padding-top: 10px;
+  text-decoration: none;
+  color: currentColor;
+  background-color: rgb(140, 139, 139);
+  border-radius: 50%;
+}
+.social-links ul li a:hover {
+  background-color: rgb(176, 169, 197);
+}

@@ -11,6 +11,7 @@ import { getArticles } from "./api/services/articles";
 import { ArticleProvider } from "./context/ArticleContext";
 import { UserProvider } from "./context/UserContext";
 import BeatLoader from "react-spinners/BeatLoader";
+import Footer from "./components/Footer";
 
 function App() {
   const [articles, setArticles] = useState([]);
@@ -63,6 +64,7 @@ function App() {
           <Route path="/article/:id" element={<ArticleDetails />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
+        <Footer />
       </ArticleProvider>
     </UserProvider>
   );
